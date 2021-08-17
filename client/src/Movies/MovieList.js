@@ -9,9 +9,13 @@ export default function MovieList(props) {
   return (
     <div className="movie-list">
       {props.movies.map(movie => (
-        <Link to={`/movies/${movie.id}`}>
-          <MovieDetails key={movie.id} movie={movie} />
-        </Link>
+        <div
+          // className="movie-card"
+          key={movie.id}> 
+          <Link to={`/movies/${movie.id}`} className="movie-list" style={{ color: 'inherit', textDecoration: 'inherit' }} >
+            <MovieDetails className="movie-card" key={movie.id} movie={movie} />
+          </Link>
+        </div>
       ))}
     </div>
   );
