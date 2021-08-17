@@ -7,7 +7,7 @@ export default function Movie(props) {
 
   const { movies } = props;
   const { movieId } = useParams();
-  const { path, url } = useRouteMatch();
+  // const { path, url } = useRouteMatch();
   // Change ^^^ that line and use a hook to obtain the :id parameter from the URL
 
   const id = movies.find(movie => movie.id === parseInt(movieId))
@@ -25,7 +25,7 @@ export default function Movie(props) {
       });
     // This effect should run every time time
     // the `id` changes... How could we do this?
-  }, []);
+  }, [`${movieId}`]);
 
   // Uncomment this only when you have moved on to the stretch goals
   // const saveMovie = evt => { }
