@@ -28,11 +28,14 @@ export default function App () {
 
   const addToSavedList = movieId => {
     // This is stretch. Prevent the same movie from being "saved" more than once
+    const  movie  = movieList.find(movie => movie.movieId === +movieId)
+    const savedMovie = saved.find(movie => movie.movieId === +movieId)
+    return !savedMovie ? setSaved([...saved, movie]) : null
   };
 
   return (
     <div>
-      <SavedList list={[ /* This is stretch */]} />
+      <SavedList list={saved} />
       
         {/* <div>
           <Link to='/'>Home</Link>
